@@ -1,3 +1,3 @@
 # Litjets
 
-This is my own realization of declarative approach of realiation UI in iOS
+This is my own realization of declarative approach of realization UI in iOS
