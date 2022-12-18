@@ -13,26 +13,33 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let vStack = VStack(state: .init(spacing: 8, alignment: .leading)) {
+            
+            HStack(state: .init(spacing: 12, alignment: .leading)) {
+                Image(state: .init(imageStringType: .system("figure.cricket"),
+                                   contentMode: .scaleAspectFit))
+                .concreteSize(.init(width: 25, height: 25))
+                Text(state: .init(text: "Hello!",
+                                  font: .systemFont(ofSize: 20)))
+                Text(state: .init(text: "It's me!",
+                                  font: .systemFont(ofSize: 50)))
+            }
+            
             Text(state: .init(text: "Hello!",
                               font: .systemFont(ofSize: 20)))
-            .insetX(-10)
             
             Spacer(state: .init(space: 10))
             
             Image(state: .init(imageStringType: .system("figure.cricket"),
                                contentMode: .scaleAspectFit))
             .concreteSize(.init(width: 100, height: 100))
-            .insetX(20)
-            
+            .insetTop(20)
             
             Text(state: .init(text: "It's me!",
                               font: .systemFont(ofSize: 50)))
-        }
+        }.insetLeft(12).insetTop(50).insetRight(12)
         
         vStack.prerender(in: .init(size: self.view.bounds.size))
         if let resultView = vStack.applyLayout() {
-            
-            resultView.frame = .init(origin: .init(x: 0, y: 50), size: resultView.frame.size)
             view.addSubview(resultView)
         }
     }

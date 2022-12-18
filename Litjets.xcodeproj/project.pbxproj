@@ -24,7 +24,10 @@
 		A9AFC5312948C8BB0007D26C /* VStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AFC5302948C8BB0007D26C /* VStack.swift */; };
 		A9AFC535294901B60007D26C /* StackBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AFC534294901B60007D26C /* StackBuilder.swift */; };
 		A9E21051294E2F9B00A7B63E /* Spacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E21050294E2F9B00A7B63E /* Spacer.swift */; };
-		A9E21053294E477100A7B63E /* InsetModificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E21052294E477100A7B63E /* InsetModificator.swift */; };
+		A9E21053294E477100A7B63E /* InsetsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E21052294E477100A7B63E /* InsetsComponent.swift */; };
+		A9E21057294EF92F00A7B63E /* HStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E21056294EF92F00A7B63E /* HStack.swift */; };
+		A9E2105A294F613A00A7B63E /* Component+Inset.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E21059294F613A00A7B63E /* Component+Inset.swift */; };
+		A9E2105C294F615C00A7B63E /* Insets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2105B294F615C00A7B63E /* Insets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,7 +50,10 @@
 		A9AFC5302948C8BB0007D26C /* VStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VStack.swift; sourceTree = "<group>"; };
 		A9AFC534294901B60007D26C /* StackBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackBuilder.swift; sourceTree = "<group>"; };
 		A9E21050294E2F9B00A7B63E /* Spacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacer.swift; sourceTree = "<group>"; };
-		A9E21052294E477100A7B63E /* InsetModificator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetModificator.swift; sourceTree = "<group>"; };
+		A9E21052294E477100A7B63E /* InsetsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetsComponent.swift; sourceTree = "<group>"; };
+		A9E21056294EF92F00A7B63E /* HStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HStack.swift; sourceTree = "<group>"; };
+		A9E21059294F613A00A7B63E /* Component+Inset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Component+Inset.swift"; sourceTree = "<group>"; };
+		A9E2105B294F615C00A7B63E /* Insets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Insets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,11 +111,8 @@
 		A9AFC51D2947B0110007D26C /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				A9E21055294EF90C00A7B63E /* Components */,
 				A9AFC52B2948BA590007D26C /* Modificators */,
-				A9AFC51E2947B0110007D26C /* Text.swift */,
-				A9AFC52E2948C4240007D26C /* Image.swift */,
-				A9AFC5302948C8BB0007D26C /* VStack.swift */,
-				A9E21050294E2F9B00A7B63E /* Spacer.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -129,8 +132,8 @@
 		A9AFC52B2948BA590007D26C /* Modificators */ = {
 			isa = PBXGroup;
 			children = (
+				A9E21058294F612000A7B63E /* Inset */,
 				A9AFC52C2948BA7D0007D26C /* SizeModificator.swift */,
-				A9E21052294E477100A7B63E /* InsetModificator.swift */,
 			);
 			path = Modificators;
 			sourceTree = "<group>";
@@ -141,6 +144,36 @@
 				A9AFC534294901B60007D26C /* StackBuilder.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		A9E21054294EF90200A7B63E /* Stacks */ = {
+			isa = PBXGroup;
+			children = (
+				A9AFC5302948C8BB0007D26C /* VStack.swift */,
+				A9E21056294EF92F00A7B63E /* HStack.swift */,
+			);
+			path = Stacks;
+			sourceTree = "<group>";
+		};
+		A9E21055294EF90C00A7B63E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A9E21054294EF90200A7B63E /* Stacks */,
+				A9AFC51E2947B0110007D26C /* Text.swift */,
+				A9AFC52E2948C4240007D26C /* Image.swift */,
+				A9E21050294E2F9B00A7B63E /* Spacer.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		A9E21058294F612000A7B63E /* Inset */ = {
+			isa = PBXGroup;
+			children = (
+				A9E21052294E477100A7B63E /* InsetsComponent.swift */,
+				A9E21059294F613A00A7B63E /* Component+Inset.swift */,
+				A9E2105B294F615C00A7B63E /* Insets.swift */,
+			);
+			path = Inset;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,8 +250,10 @@
 				A9AFC50D2947AFE40007D26C /* ViewController.swift in Sources */,
 				A9AFC52F2948C4240007D26C /* Image.swift in Sources */,
 				A9AFC5282947B0110007D26C /* Component.swift in Sources */,
+				A9E2105C294F615C00A7B63E /* Insets.swift in Sources */,
 				A9AFC535294901B60007D26C /* StackBuilder.swift in Sources */,
-				A9E21053294E477100A7B63E /* InsetModificator.swift in Sources */,
+				A9E21053294E477100A7B63E /* InsetsComponent.swift in Sources */,
+				A9E21057294EF92F00A7B63E /* HStack.swift in Sources */,
 				A9AFC5262947B0110007D26C /* RenderConstraint.swift in Sources */,
 				A9AFC52A2947B0110007D26C /* Node.swift in Sources */,
 				A9AFC52D2948BA7D0007D26C /* SizeModificator.swift in Sources */,
@@ -227,6 +262,7 @@
 				A9E21051294E2F9B00A7B63E /* Spacer.swift in Sources */,
 				A9AFC5092947AFE40007D26C /* AppDelegate.swift in Sources */,
 				A9AFC5252947B0110007D26C /* Text.swift in Sources */,
+				A9E2105A294F613A00A7B63E /* Component+Inset.swift in Sources */,
 				A9AFC50B2947AFE40007D26C /* SceneDelegate.swift in Sources */,
 				A9AFC5312948C8BB0007D26C /* VStack.swift in Sources */,
 			);
