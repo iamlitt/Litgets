@@ -14,7 +14,7 @@ public final class Node {
     
     // from 1 to 100
     var priority: Int
-    var component: (any Component)?
+    weak var component: (any Component)?
     
     init(frame: CGRect) {
         self.frame = frame

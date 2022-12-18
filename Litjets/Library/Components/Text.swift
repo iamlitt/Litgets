@@ -29,12 +29,13 @@ public class Text: Component {
         node.frame = .init(origin: .zero,
                            size: .init(width: min(size.width, widthForText),
                                        height: min(size.height, heightForText)))
+        node.component = self
         return .init(node: node)
     }
     
     private lazy var label: UILabel = UILabel()
     
-    public func applyLayout() -> UIView {
+    public func applyLayout() -> UIView? {
         label.frame = node.frame
         label.text = state.text
         label.font = state.font

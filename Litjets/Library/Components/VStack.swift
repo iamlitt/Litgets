@@ -45,25 +45,27 @@ public final class VStack: Component {
         
         node.frame = .init(origin: .zero,
                            size: .init(width: size.width, height: yCoordinate))
+        node.component = self
         return .init(node: node)
     }
     
-    public func applyLayout() -> UIView {
+    public func applyLayout() -> UIView? {
         components.forEach {
-            containerView.addSubview($0.applyLayout())
+            if let view = $0.applyLayout() { containerView.addSubview(view) }
         }
         containerView.frame = node.frame
         return containerView
     }
     
     private func calculateXOffset(for childNode: Node, maxWidth: CGFloat) -> CGFloat {
+        let baseNodeOffset = childNode.frame.origin.x
         switch state.alignment {
         case .leading:
-            return 0
+            return 0 + baseNodeOffset
         case .center:
-            return (maxWidth - childNode.frame.width) / 2
+            return (maxWidth - childNode.frame.width) / 2 + baseNodeOffset
         case .trailing:
-            return maxWidth - childNode.frame.width
+            return maxWidth - childNode.frame.width + baseNodeOffset
         }
     }
 }

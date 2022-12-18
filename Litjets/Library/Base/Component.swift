@@ -15,7 +15,7 @@ public protocol Component: AnyObject {
     func prerender(in context: RenderContext) -> ResultLayout
     
     // fill real view
-    func applyLayout() -> UIView
+    func applyLayout() -> UIView?
     
     var state: State { get }
 }

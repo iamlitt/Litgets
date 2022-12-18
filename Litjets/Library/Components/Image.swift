@@ -21,12 +21,13 @@ public class Image: Component {
         let size = applyConstraints(with: context)
         node.frame = .init(origin: .zero,
                            size: size)
+        node.component = self
         return .init(node: node)
     }
     
     private lazy var imageView: UIImageView = UIImageView()
     
-    public func applyLayout() -> UIView {
+    public func applyLayout() -> UIView? {
         let image: UIImage?
         switch state.imageStringType {
         case .asset(let assetString):

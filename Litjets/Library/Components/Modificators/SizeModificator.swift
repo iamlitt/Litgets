@@ -33,7 +33,7 @@ public final class ConcreteSizeComponent: Component {
         return result
     }
     
-    public func applyLayout() -> UIView {
+    public func applyLayout() -> UIView? {
         component.applyLayout()
     }
 }

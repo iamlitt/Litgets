@@ -23,6 +23,8 @@
 		A9AFC52F2948C4240007D26C /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AFC52E2948C4240007D26C /* Image.swift */; };
 		A9AFC5312948C8BB0007D26C /* VStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AFC5302948C8BB0007D26C /* VStack.swift */; };
 		A9AFC535294901B60007D26C /* StackBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AFC534294901B60007D26C /* StackBuilder.swift */; };
+		A9E21051294E2F9B00A7B63E /* Spacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E21050294E2F9B00A7B63E /* Spacer.swift */; };
+		A9E21053294E477100A7B63E /* InsetModificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E21052294E477100A7B63E /* InsetModificator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		A9AFC52E2948C4240007D26C /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		A9AFC5302948C8BB0007D26C /* VStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VStack.swift; sourceTree = "<group>"; };
 		A9AFC534294901B60007D26C /* StackBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackBuilder.swift; sourceTree = "<group>"; };
+		A9E21050294E2F9B00A7B63E /* Spacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacer.swift; sourceTree = "<group>"; };
+		A9E21052294E477100A7B63E /* InsetModificator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetModificator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,7 @@
 				A9AFC51E2947B0110007D26C /* Text.swift */,
 				A9AFC52E2948C4240007D26C /* Image.swift */,
 				A9AFC5302948C8BB0007D26C /* VStack.swift */,
+				A9E21050294E2F9B00A7B63E /* Spacer.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -125,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				A9AFC52C2948BA7D0007D26C /* SizeModificator.swift */,
+				A9E21052294E477100A7B63E /* InsetModificator.swift */,
 			);
 			path = Modificators;
 			sourceTree = "<group>";
@@ -212,11 +218,13 @@
 				A9AFC52F2948C4240007D26C /* Image.swift in Sources */,
 				A9AFC5282947B0110007D26C /* Component.swift in Sources */,
 				A9AFC535294901B60007D26C /* StackBuilder.swift in Sources */,
+				A9E21053294E477100A7B63E /* InsetModificator.swift in Sources */,
 				A9AFC5262947B0110007D26C /* RenderConstraint.swift in Sources */,
 				A9AFC52A2947B0110007D26C /* Node.swift in Sources */,
 				A9AFC52D2948BA7D0007D26C /* SizeModificator.swift in Sources */,
 				A9AFC5292947B0110007D26C /* RenderContext.swift in Sources */,
 				A9AFC5272947B0110007D26C /* ResultLayout.swift in Sources */,
+				A9E21051294E2F9B00A7B63E /* Spacer.swift in Sources */,
 				A9AFC5092947AFE40007D26C /* AppDelegate.swift in Sources */,
 				A9AFC5252947B0110007D26C /* Text.swift in Sources */,
 				A9AFC50B2947AFE40007D26C /* SceneDelegate.swift in Sources */,
