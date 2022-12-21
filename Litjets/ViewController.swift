@@ -14,13 +14,13 @@ class ViewController: UIViewController {
         
         let vStack = VStack(state: .init(spacing: 8, alignment: .leading)) {
             
-            HStack(state: .init(spacing: 12, alignment: .leading)) {
+            HStack(state: .init(spacing: 12, alignment: .center)) {
                 Image(state: .init(imageStringType: .system("figure.cricket"),
                                    contentMode: .scaleAspectFit))
                 .concreteSize(.init(width: 25, height: 25))
-                Text(state: .init(text: "Hello!",
+                Text(state: .init(text: "SwiftUI",
                                   font: .systemFont(ofSize: 20)))
-                Text(state: .init(text: "It's me!",
+                Text(state: .init(text: "SUCKS!",
                                   font: .systemFont(ofSize: 50)))
             }
             
@@ -38,7 +38,7 @@ class ViewController: UIViewController {
                               font: .systemFont(ofSize: 50)))
         }.insetLeft(12).insetTop(50).insetRight(12)
         
-        vStack.prerender(in: .init(size: self.view.bounds.size))
+        vStack.prerender(in: .init(size: self.view.bounds.size, renderType: .sizeToFit))
         if let resultView = vStack.applyLayout() {
             view.addSubview(resultView)
         }

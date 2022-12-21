@@ -25,11 +25,10 @@ public final class ConcreteSizeComponent: Component {
     
     @discardableResult
     public func prerender(in context: RenderContext) -> ResultLayout {
-        let minSize = CGSize(width: min(context.size.width, state.width),
-                             height: min(context.size.height, state.height))
-        let result = component.prerender(in: .init(size: minSize,
-                                                   constraints: context.constraints))
-        result.node.frame = .init(origin: result.node.frame.origin, size: minSize)
+        let result = component.prerender(in: .init(size: state,
+                                                   constraints: context.constraints,
+                                                   renderType: .sizeToFill))
+        result.node.frame = .init(origin: result.node.frame.origin, size: state)
         return result
     }
     

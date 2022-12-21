@@ -7,6 +7,7 @@
 
 import UIKit
 
+// TODO: Implement priorities mechanism
 public final class VStack: Component {
     public var state: VStackState
     
@@ -24,7 +25,7 @@ public final class VStack: Component {
     @discardableResult
     public func prerender(in context: RenderContext) -> ResultLayout {
         let size = applyConstraints(with: context)
-        var iterativeRenderContext = RenderContext(size: size, constraints: context.constraints)
+        var iterativeRenderContext = RenderContext(size: size, constraints: context.constraints, renderType: .sizeToFit)
         var yCoordinate: CGFloat = 0
         var childNodes: [Node] = []
         childNodes.reserveCapacity(components.count)
@@ -38,13 +39,23 @@ public final class VStack: Component {
                                     size: childNode.frame.size)
             childNodes.append(childNode)
             yCoordinate = childNode.frame.maxY + (offset == count - 1 ? 0 : state.spacing)
-            node.addSubnode(node)
+            node.addSubnode(childNode)
             // TO THINK: is need to stop rendering when max height is reached in previous iteration?
-            iterativeRenderContext = .init(size: .init(width: size.width, height: max(0, size.height - yCoordinate)), constraints: nil)
+            iterativeRenderContext = .init(size: .init(width: size.width,
+                                                       height: max(0, size.height - yCoordinate)),
+                                           constraints: nil,
+                                           renderType: iterativeRenderContext.renderType)
         }
         
-        node.frame = .init(origin: .zero,
-                           size: .init(width: size.width, height: yCoordinate))
+        
+        switch context.renderType {
+        case .sizeToFit:
+            node.frame = .init(origin: .zero,
+                               size: size)
+        case .sizeToFill:
+            node.frame = .init(origin: .zero,
+                               size: .init(width: size.width, height: yCoordinate))
+        }
         node.component = self
         return .init(node: node)
     }

@@ -24,11 +24,17 @@ public class Text: Component {
         } else {
             size = context.size
         }
-        let heightForText = state.text.height(withWidth: size.width, font: state.font)
-        let widthForText = state.text.width(withHeight: heightForText, font: state.font)
-        node.frame = .init(origin: .zero,
-                           size: .init(width: min(size.width, widthForText),
-                                       height: min(size.height, heightForText)))
+        switch context.renderType {
+        case .sizeToFill:
+            node.frame = .init(origin: .zero,
+                               size: size)
+        case .sizeToFit:
+            let heightForText = state.text.height(withWidth: size.width, font: state.font)
+            let widthForText = state.text.width(withHeight: heightForText, font: state.font)
+            node.frame = .init(origin: .zero,
+                               size: .init(width: min(size.width, widthForText),
+                                           height: min(size.height, heightForText)))
+        }
         node.component = self
         return .init(node: node)
     }
