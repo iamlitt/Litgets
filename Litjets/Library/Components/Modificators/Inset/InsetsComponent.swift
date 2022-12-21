@@ -20,8 +20,13 @@ public final class InsetsComponent: Component {
     
     @discardableResult
     public func prerender(in context: RenderContext) -> ResultLayout {
-        let result = component.prerender(in: context)
-        result.node.frame = modificateFrame(result.node.frame, insets: state, context: context)
+        let newContextSize: CGSize = .init(width: context.size.width - (state.left ?? 0) - (state.right ?? 0),
+                                           height: context.size.height - (state.top ?? 0) - (state.bottom ?? 0))
+        let newContext = RenderContext(size: newContextSize, constraints: context.constraints, renderType: context.renderType)
+        let result = component.prerender(in: newContext)
+        result.node.frame = modificateFrame(result.node.frame,
+                                            insets: state,
+                                            context: newContext)
         return result
     }
     
@@ -37,47 +42,23 @@ public final class InsetsComponent: Component {
         // apply top
         if let top = insets.top {
             origin = .init(x: origin.x, y: origin.y + top)
-            let addTopNewHeight = origin.y + size.height
-            if addTopNewHeight > context.size.height {
-                size = .init(width: size.width, height: context.size.height - top)
-            }
         }
         
         // apply left
         if let left = insets.left {
             origin = .init(x: origin.x + left, y: origin.y)
-            let addLeftNewWidth = origin.x + size.width
-            if addLeftNewWidth > context.size.width {
-                size = .init(width: context.size.width - left, height: size.height)
-            }
         }
         
         // apply bottom
         if let bottom = insets.bottom {
             let isTopInsetSetted = insets.top != nil
             origin = isTopInsetSetted ? origin : .init(x: origin.x, y: context.size.height - size.height - bottom)
-            if isTopInsetSetted {
-                size = .init(width: size.width, height: context.size.height - bottom - (insets.top ?? 0))
-            } else {
-                let addBottomHeight = origin.y + size.height
-                if addBottomHeight > context.size.height {
-                    size = .init(width: size.width, height: context.size.height - bottom)
-                }
-            }
         }
         
         // apply right
         if let right = insets.right {
             let isLeftInsetSetted = insets.left != nil
             origin = isLeftInsetSetted ? origin : .init(x: context.size.width - size.width - right, y: origin.y)
-            if isLeftInsetSetted {
-                size = .init(width: context.size.width - right - (insets.left ?? 0), height: size.height)
-            } else {
-                let addRightWidth = origin.x + size.width
-                if addRightWidth > context.size.width {
-                    size = .init(width: context.size.width - right, height: size.height)
-                }
-            }
         }
         
         

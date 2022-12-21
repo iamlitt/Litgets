@@ -58,7 +58,6 @@ public final class HStack: Component {
                                             maxHeight: min(size.height,
                                                            maxHeight),
                                             baseOffset: 0)
-                print(newY)
                 $0.frame = .init(origin: .init(x: $0.frame.origin.x,
                                                y: newY),
                                  size: $0.frame.size)
